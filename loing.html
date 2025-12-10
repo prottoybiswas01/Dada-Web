@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লগইন / সাইনআপ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ফন্ট হিসেবে Inter ব্যবহার করা হয়েছে */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+        }
+        /* ট্রানজিশনের জন্য */
+        .card-container {
+            transition: height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md">
+        <!-- ব্র্যান্ডিং এরিয়া -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-indigo-600">LOGO</h1>
+            <p class="text-lg text-gray-600 mt-1">শিক্ষার্থী পোর্টালে স্বাগতম</p>
+        </div>
+
+        <!-- কার্ড কন্টেইনার -->
+        <div id="cardContainer" class="bg-white p-8 rounded-xl shadow-2xl border border-gray-100 card-container">
+            
+            <!-- টগল বাটন -->
+            <div class="flex mb-6 border-b border-gray-200">
+                <button id="loginTab" onclick="showForm('login')" class="flex-1 py-3 text-lg font-semibold border-b-2 border-indigo-600 text-indigo-600 transition duration-300">
+                    লগইন
+                </button>
+                <button id="signupTab" onclick="showForm('signup')" class="flex-1 py-3 text-lg font-semibold text-gray-500 hover:text-indigo-600 transition duration-300">
+                    সাইনআপ
+                </button>
+            </div>
+
+            <!-- ১. লগইন ফর্ম -->
+            <form id="loginForm" class="space-y-6">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">লগইন করুন</h2>
+                
+                <div>
+                    <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">ইমেইল বা রোল নম্বর</label>
+                    <input type="text" id="login-email" name="email" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                           placeholder="উদাহরণ: A-12345 বা your@email.com">
+                </div>
+                
+                <div>
+                    <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">পাসওয়ার্ড</label>
+                    <input type="password" id="login-password" name="password" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                           placeholder="আপনার পাসওয়ার্ড">
+                </div>
+                
+                <div class="flex justify-end">
+                    <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">পাসওয়ার্ড ভুলে গেছেন?</a>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
+                    প্রবেশ করুন
+                    <a href="index.html"></a>
+                </button>
+            </form>
+
+            <!-- ২. সাইনআপ ফর্ম (শুরুতে লুকানো থাকবে) -->
+            <form id="signupForm" class="space-y-6 hidden">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">নতুন অ্যাকাউন্ট তৈরি করুন</h2>
+                
+                <div>
+                    <label for="signup-name" class="block text-sm font-medium text-gray-700 mb-1">আপনার পুরো নাম</label>
+                    <input type="text" id="signup-name" name="name" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                           placeholder="যেমন: প্রত‍্যয় কুমার বিশ্বাস">
+                </div>
+                
+                <div>
+                    <label for="signup-email" class="block text-sm font-medium text-gray-700 mb-1">ইমেইল অ্যাড্রেস</label>
+                    <input type="email" id="signup-email" name="email" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                           placeholder="your@email.com">
+                </div>
+                
+                <div>
+                    <label for="signup-password" class="block text-sm font-medium text-gray-700 mb-1">পাসওয়ার্ড তৈরি করুন</label>
+                    <input type="password" id="signup-password" name="password" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                           placeholder="কমপক্ষে ৬ অক্ষর">
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300">
+                    অ্যাকাউন্ট তৈরি করুন
+                    <a href="index.html"></a>
+                </button>
+            </form>
+        </div>
+
+        <div class="text-center mt-6 text-sm text-gray-500">
+            <p>&copy; 2024 GROUP NAME. সর্বস্বত্ত্ব সংরক্ষিত।</p>
+        </div>
+    </div>
+    
+    <!-- মেসেজ বক্সের জন্য কাস্টম মোডাল -->
+    <div id="messageModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
+            <h4 id="messageTitle" class="text-lg font-bold text-gray-900 mb-2"></h4>
+            <p id="messageText" class="text-gray-700 mb-4"></p>
+            <button onclick="hideMessage()" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">ঠিক আছে</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showMessage('লগইন চেষ্টা', 'লগইন প্রক্রিয়া শুরু হচ্ছে...');
+            // এখানে আপনি আসল লগইন কোড যোগ করতে পারেন
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showMessage('সাইনআপ চেষ্টা', 'অ্যাকাউন্ট তৈরির প্রক্রিয়া শুরু হচ্ছে...');
+            // এখানে আপনি আসল সাইনআপ কোড যোগ করতে পারেন
+        });
+
+        // টগল ফাংশন
+        function showForm(formType) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const loginTab = document.getElementById('loginTab');
+            const signupTab = document.getElementById('signupTab');
+            
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                loginTab.classList.add('border-indigo-600', 'text-indigo-600');
+                loginTab.classList.remove('text-gray-500', 'hover:text-indigo-600');
+                signupTab.classList.remove('border-indigo-600', 'text-indigo-600');
+                signupTab.classList.add('text-gray-500', 'hover:text-indigo-600');
+                
+            } else if (formType === 'signup') {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+                signupTab.classList.add('border-indigo-600', 'text-indigo-600');
+                signupTab.classList.remove('text-gray-500', 'hover:text-indigo-600');
+                loginTab.classList.remove('border-indigo-600', 'text-indigo-600');
+                loginTab.classList.add('text-gray-500', 'hover:text-indigo-600');
+            }
+        }
+        
+        // কাস্টম মেসেজ মোডাল দেখানোর ফাংশন (alert() ব্যবহার করা যাবে না বলে)
+        function showMessage(title, text) {
+            document.getElementById('messageTitle').innerText = title;
+            document.getElementById('messageText').innerText = text;
+            document.getElementById('messageModal').classList.remove('hidden');
+            document.getElementById('messageModal').classList.add('flex');
+        }
+
+        function hideMessage() {
+            document.getElementById('messageModal').classList.add('hidden');
+            document.getElementById('messageModal').classList.remove('flex');
+        }
+
+    </script>
+</body>
+</html>
